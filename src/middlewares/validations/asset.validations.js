@@ -1,3 +1,4 @@
+import { body } from "express-validator";
 import { AssetModel } from "../../models/mongoose/asset.model.js";
 
 export const createAssetValidation = [

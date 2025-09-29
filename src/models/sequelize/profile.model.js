@@ -1,4 +1,5 @@
 import { DataTypes } from "sequelize";
+import { UserModel } from "./user.model";
 
 export const ProfileModel = sequelize.define("Profile", {
   employee_number: {
@@ -13,12 +14,12 @@ export const ProfileModel = sequelize.define("Profile", {
 
     //Relación de uno a uno
 
-    Profile.belongsTo(User, {
+    ProfileModel.belongsTo(UserModel, {
         foreignKey: "user_id",
         as: "user"
     });
 
-    User.hasOne(Profile, {
+    UserModel.hasOne(ProfileModel, {
         foreignKey: "user_id",
         as: "profile"
     });

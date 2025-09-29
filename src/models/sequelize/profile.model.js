@@ -11,6 +11,17 @@ export const ProfileModel = sequelize.define("Profile", {
   phone: { type: DataTypes.STRING(20), allowNull: true },
 });
 
+    //Relación de uno a uno
+
+    Profile.belongsTo(User, {
+        foreignKey: "user_id",
+        as: "user"
+    });
+
+    User.hasOne(Profile, {
+        foreignKey: "user_id",
+        as: "profile"
+    });
 // TODO: Relación uno a uno con User (1 User tiene 1 Profile)
 // * 1:1 Profile ↔ User
 // * 'profile' (User) y 'user' (Profile)
